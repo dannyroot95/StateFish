@@ -1,9 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".ui.view.LoginActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/fl_header_image"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+    <com.state.fish.utils.MontserratTextViewBold
+        android:id="@+id/tv_title"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="StateFish"
+        android:textColor="#565656"
+        android:textSize="25sp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/purple_700"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Email"
+        android:textColorHint="@color/colorSecondaryText">
+
+        <com.state.fish.utils.MontserratEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="16sp"
+            tools:text="abc@gmail.com" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:passwordToggleEnabled="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Contraseña"
+        app:boxStrokeColor="@color/purple_700"
+        android:textColorHint="@color/colorSecondaryText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_email">
+
+        <com.state.fish.utils.MontserratEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="16sp"
+            tools:text="123456" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.state.fish.utils.MontserratTextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginEnd="16dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="5dp"
+        android:text="Olvidé mi constraseña?"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_password"
+        tools:ignore="UnusedAttribute" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        app:cornerRadius="15sp"
+        app:strokeColor="@color/purple_700"
+        android:textAllCaps="false"
+        android:fontFamily="@font/monserrat"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:paddingBottom="8dp"
+        android:text="Iniciar sesión"
+        android:textColor="@color/item_value_text_color"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="8dp"
+            app:cornerRadius="8sp"
+            app:strokeColor="#005A8D"
+            android:drawableLeft="@drawable/icon_facebook"
+            android:includeFontPadding="false"
+            android:textAllCaps="false"
+            android:fontFamily="@font/monserrat"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:paddingBottom="8dp"
+            android:text="Iniciar con\nFacebook"
+            android:textColor="#005A8D"
+            app:rippleColor="#C9E0FF"
+            android:textSize="12sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="8dp"
+            android:layout_marginStart="12dp"
+            android:drawableLeft="@drawable/icon_google"
+            android:includeFontPadding="false"
+            app:cornerRadius="8sp"
+            app:strokeColor="#E82E00"
+            android:textAllCaps="false"
+            android:fontFamily="@font/monserrat"
+            app:rippleColor="#FED3C9"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:paddingBottom="8dp"
+            android:text="Iniciar con\nGoogle"
+            android:textColor="#E82E00"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_login">
+
+        <com.state.fish.utils.MontserratTextView
+            android:id="@+id/tv_don_t_have_an_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="No tienes una cuenta?"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="16sp" />
+
+        <com.state.fish.utils.MontserratTextViewBold
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="5dp"
+            android:text="Registrar"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>
+    <!--END-->

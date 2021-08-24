@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#F0F0F0</color>
+    <color name="sea">#4dc3d5</color>
+    <color name="seatwo">#22a9c0</color>
+    <color name="onBoarding">#fffefe</color>
+    <color name="colorPrimaryText">#222934</color>
+    <color name="colorSecondaryText">#898989</color>
+    <color name="item_value_text_color">#545353</color>
 </resources>

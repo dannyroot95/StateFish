@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "991708400645",
+    "project_id": "statefish-bc9d1",
+    "storage_bucket": "statefish-bc9d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991708400645:android:8a529dde885042438da06c",
+        "android_client_info": {
+          "package_name": "com.state.fish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991708400645-dgfqck0rl4pro1vcmf646gjsubletk4j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.state.fish",
+            "certificate_hash": "f90acd66171d32a732df1b361b83ba70919da18b"
+          }
+        },
+        {
+          "client_id": "991708400645-tpgoih1sok507bs9fppu0dtr5r2a9b46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVOy-nky2gU-T9n2ipn8YuXh9ScdaU8uE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991708400645-tpgoih1sok507bs9fppu0dtr5r2a9b46.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
