@@ -25,7 +25,7 @@
 
     </LinearLayout>
 
-    <com.state.fish.utils.MontserratTextViewBold
+    <com.state.fish.utils.UbuntuTextViewBold
         android:id="@+id/tv_title"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:hint="Email"
         android:textColorHint="@color/colorSecondaryText">
 
-        <com.state.fish.utils.MontserratEditText
+        <com.state.fish.utils.UbuntuEditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_email">
 
-        <com.state.fish.utils.MontserratEditText
+        <com.state.fish.utils.UbuntuEditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.state.fish.utils.MontserratTextView
+    <com.state.fish.utils.UbuntuTextViewRegular
         android:id="@+id/tv_forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
         app:cornerRadius="15sp"
         app:strokeColor="@color/purple_700"
         android:textAllCaps="false"
-        android:fontFamily="@font/monserrat"
+        android:fontFamily="@font/ubuntu_medium"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:paddingBottom="8dp"
         android:text="Iniciar sesión"
@@ -144,7 +144,7 @@
             android:drawableLeft="@drawable/icon_facebook"
             android:includeFontPadding="false"
             android:textAllCaps="false"
-            android:fontFamily="@font/monserrat"
+            android:fontFamily="@font/ubuntu_regular"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:paddingBottom="8dp"
             android:text="Iniciar con\nFacebook"
@@ -164,7 +164,7 @@
             app:cornerRadius="8sp"
             app:strokeColor="#E82E00"
             android:textAllCaps="false"
-            android:fontFamily="@font/monserrat"
+            android:fontFamily="@font/ubuntu_regular"
             app:rippleColor="#FED3C9"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:paddingBottom="8dp"
@@ -185,7 +185,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_login">
 
-        <com.state.fish.utils.MontserratTextView
+        <com.state.fish.utils.UbuntuTextViewRegular
             android:id="@+id/tv_don_t_have_an_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -194,7 +194,7 @@
             android:textColor="@color/colorSecondaryText"
             android:textSize="16sp" />
 
-        <com.state.fish.utils.MontserratTextViewBold
+        <com.state.fish.utils.UbuntuTextViewBold
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

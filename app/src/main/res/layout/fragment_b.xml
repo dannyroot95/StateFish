@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.0">
 
-        <com.state.fish.utils.MontserratTextViewBold
+        <com.state.fish.utils.UbuntuTextViewBold
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Análisis"
@@ -44,11 +44,11 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <com.state.fish.utils.MontserratTextView
+        <com.state.fish.utils.UbuntuTextViewRegular
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="20dp"
             android:text="Compruebe que cada parámetro este tomando la medida correcta según el sensor , cada uno de ellos tendra muchas mas informacion adicional."
             android:textColor="#fff"
             android:textSize="14sp" />

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#164762"
-    tools:context=".FragmentC">
+    android:background="#164762">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -38,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.0">
 
-        <com.state.fish.utils.MontserratTextViewBold
+        <com.state.fish.utils.UbuntuTextViewBold
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Notificaciones"
@@ -46,11 +45,11 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <com.state.fish.utils.MontserratTextView
+        <com.state.fish.utils.UbuntuTextViewRegular
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="20dp"
             android:text="Reciba alarmas y notificaciones cuando dentro de su estanque el dispositivo detecte alguna anormalidad."
             android:textColor="#fff"
             android:textSize="14sp" />
@@ -101,7 +100,7 @@
         android:text="Iniciar"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:fontFamily="@font/monserrat"
+        android:fontFamily="@font/ubuntu_medium"
         android:textStyle="bold"
         android:layout_marginRight="15dp"
         app:layout_constraintEnd_toEndOf="parent"

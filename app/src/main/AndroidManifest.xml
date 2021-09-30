@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.view.RegisterActivity"></activity>
-        <activity android:name=".ui.view.DashboardActivity" />
+
+        <activity android:name=".ui.view.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.view.DashboardActivity"
+            android:screenOrientation="portrait"/>
+
+
         <activity
             android:name=".ui.view.LoginActivity"
             android:screenOrientation="portrait" />
@@ -24,6 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>
