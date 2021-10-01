@@ -3,11 +3,11 @@ package com.state.fish.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -18,13 +18,15 @@ import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.state.fish.core.hide
 import com.state.fish.core.show
+import com.state.fish.data.local.AppUserDatabase
+import com.state.fish.data.model.User
 import com.state.fish.data.network.repository.DevicesDataSources
 import com.state.fish.databinding.ActivityDashboardBinding
 import com.state.fish.domain.DevicesImplementation
 import com.state.fish.ui.adapter.DeviceListAdapter
 import com.state.fish.ui.viewModel.DevicesViewModel
 import com.state.fish.ui.viewModel.DevicesViewModelFactory
-import com.state.fish.utils.TinyDB
+import com.state.fish.utils.Constants
 import com.state.fish.vo.Resource
 
 class DashboardActivity : AppCompatActivity() {
@@ -38,25 +40,17 @@ class DashboardActivity : AppCompatActivity() {
         )
     }
 
-    private lateinit var tinyDB : TinyDB
-    private lateinit var list : ArrayList<String>
+    val Succes = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        list = ArrayList()
-        tinyDB = TinyDB(this)
+        val db = Room.databaseBuilder(applicationContext,
+            AppUserDatabase::class.java, Constants.DATABASE_USER).allowMainThreadQueries().build()
 
-
-        if (list.isEmpty()){
-            list.add(0,"1010")
-            list.add(1,"1111")
-            tinyDB.putListString("key",list)
-        }
-
-        val dev = tinyDB.getListString("key")
 
         val mAuth = FirebaseAuth.getInstance().currentUser!!.uid
 
@@ -70,20 +64,28 @@ class DashboardActivity : AppCompatActivity() {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
-        val db : DatabaseReference = Firebase.database.reference
-        db.child("Users").child(mAuth).addListenerForSingleValueEvent(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
-                    val fullname = snapshot.child("fullName").value.toString()
-                    val urlImage = snapshot.child("imageProfile").value.toString()
-                    binding.txtName.text = fullname
-                    Picasso.with(this@DashboardActivity).load(urlImage).into(binding.civProfile)
+        if (!Succes){
+            val data : User = db.userDao().getUser()
+            //val data2 = db.userDao().getDevices()
+            binding.txtName.text = data.fullName
+            Picasso.with(this@DashboardActivity).load(data.imageProfile).into(binding.civProfile)
+        }
+        else{
+            val dbReference : DatabaseReference = Firebase.database.reference
+            dbReference.child("Users").child(mAuth).addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+                        val data = snapshot.getValue(User::class.java)
+                        binding.txtName.text = data!!.fullName
+                        Picasso.with(this@DashboardActivity).load(data.imageProfile).into(binding.civProfile)
+                        db.userDao().insertData(data)
+                    }
                 }
-            }
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+        }
 
-            override fun onCancelled(error: DatabaseError) {
-            }
-        })
 
         viewModel.fetchDataDevice().observe(this, Observer {resource ->
             when(resource){
@@ -114,5 +116,8 @@ class DashboardActivity : AppCompatActivity() {
 
     }
 
+
+    override fun onBackPressed() {
+    }
 
 }
